@@ -1,0 +1,42 @@
+{# Jinja2 Macros can make it easier to keep content consistent across pages without the constraints of inheritance. 
+    Here are some examples/starting points. 
+#}
+{# =========================== head ============================= #}
+{% macro head(title) %}
+<head>
+    <title>{{ title }} -- A Flask Bakery Project</title>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    {# use this space for any common values you want to in the <head> of all pages #}
+    {% if caller %}{{ caller() }}{% endif %}
+</head>
+{% endmacro %}
+
+{# =========================== page_content ============================= #}
+{# This macro demonstrates how you can ensure common markup for specific elements of your pages #}
+{% macro page_content() %}
+<div class="container-fluid" id="page-content">
+    {% if caller %}{{ caller() }}{% endif %}
+    {{ footer() }}
+</div>
+{% endmacro %}
+
+{# =========================== footer ============================= #}
+{% macro footer() %}
+<div id="nav-footer" class="nav-header clearfix">
+    <a href="http://github.com/newsapps/flask-bakery">a flask-bakery project</a>
+</div>
+{% endmacro %}
+
+{# =========================== facebook_plumbing ============================= #}
+{# You'd include this on every page which uses Facebook 'Like' buttons #}
+{% macro facebook_plumbing() %}
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.net/en_US/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+{% endmacro %}
+

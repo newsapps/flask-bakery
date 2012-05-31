@@ -1,0 +1,19 @@
+{% import '_macros.html' as macros with context %}
+{% with title="Introduction to flask-bakery" %}
+<!DOCTYPE html>
+<html>
+{% call macros.head(title) %}
+{# 
+ Use the 'head' macro to easily include consistent header material on every page. 
+ The contents of the 'call' block can be used to add extra <head> level tags (JS, CSS, etc)
+ that are only needed for a specific page.
+#}
+{% endcall %}
+<body>
+    {{ macros.facebook_plumbing() }}
+    {% call macros.page_content() %}
+    We could use this area to explain more about using flask-bakery
+    {% endcall %}
+</body>
+</html>
+{% endwith %}
