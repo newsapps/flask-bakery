@@ -1,5 +1,7 @@
-This is a python-flask application which manages live-blog style stories in Tribune Co's content management system. If you don't have access to a Tribune Co CMS, you are not likely to get much use out of this, but feel free to peek at the code. This should be seen as a snapshot of work-in-progress, and not necessarily a perfect example of best-practices for development.
+This is very early code of an effort to generalize a strategy we've used recently for creating static web projects like http://chicagotribune.com/flames and http://chicagotribune.com/pensions
 
-Read http://blog.apps.chicagotribune.com/2012/05/29/covering-the-nato-summit/ for some more about this and a related tool.
+The name is derived from Ben Welsh's django-bakery and expresses the idea that it's designed to produce "baked" static HTML pages which can be deployed to a simple http server rather than having to run a server which continually re-renders templates which are based on rarely-changing content.
+
+It could probably be used in a live environment as well. We're still working out a lot of details...
 
 See LICENSE for license information.
